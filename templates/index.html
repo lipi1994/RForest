@@ -2,20 +2,20 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Expenses Prediction</title>
+  <title>Stages Prediction</title>
   </head>
 
 <body>
  <div class="login">
-	<h1>Monthly Grocery Expenses</h1>
+	<h1>Stages prediction - fermentation</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict_expenses')}}"method="post">
-    	<input type="text" name="Income" placeholder="Income" required="required" />
-        <input type="text" name="Household_size" placeholder="Household_size" required="required" />
-	
+    <form action="{{ url_for('predict_stages')}}"method="post">
+    	<input type="text" name="f_timeh" placeholder="f_timeh" required="required" />
+        <input type="text" name="DO_live" placeholder="DO_live" required="required" />
+	<input type="text" name="rpm_live" placeholder="rpm_live" required="required" />
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Monthly Expenses</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Stages</button>
     </form>
 
    <br>

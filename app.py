@@ -10,7 +10,7 @@ import pickle
 
 
 app = Flask(__name__)
-model = pickle.load(open('lr_model.pkl', 'rb'))
+model = pickle.load(open('modelsvm2.pkl', 'rb'))
 
 
 @app.route('/')
@@ -18,14 +18,14 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/predict_expenses',methods=['POST'])
-def predict_expenses():
-    int_features = [int(x) for x in request.form.values()]
+@app.route('/predict_stages',methods=['POST'])
+def predict_stages():
+    int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
-    output = round(prediction[0], 2)
+    output = prediction
 
-    return render_template('index.html', prediction_text='Predicted monthly grocery expenses $ {}'.format(output))
+    return render_template('index.html', prediction_text='Predicted stage: {}'.format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)
