@@ -18,8 +18,8 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/predict_expenses',methods=['POST'])
-def predict_expenses():
+@app.route('/predict_stages',methods=['POST'])
+def predict_stages():
     int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
